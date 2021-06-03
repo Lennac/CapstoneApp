@@ -1,17 +1,18 @@
 const express = require('express');
 const productsRouter = express.Router();
+//require controller, replace handlers with controller functions 
 
-productsRouter.route('/products')
+productsRouter.route('/')
     .get((req, res) => {
-        //get all products in db 
+        res.send("Request: GET /products");
     })
 
-productsRouter.route('/products/:id')
+productsRouter.route('/:id')
     .get((req, res) => {
-        //get specific prod by id
+        res.send(`Request: GET /products/${req.params['id']}`);
     })
     .put((req, res) => {
-        //update product inventory 
+        res.send(`Request: PUT /products/${req.params['id']}`);
     })
 
 
